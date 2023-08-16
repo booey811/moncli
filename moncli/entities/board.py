@@ -1192,7 +1192,7 @@ class Board(_Board):
         items = [en.Item(creds=self.__creds, **item_data) for item_data in items_data] 
         if not as_model:
             return items
-        if not issubclass(type(as_model), MondayModel):
+        if not issubclass(as_model, MondayModel):
             raise BoardError(
                 'invalid_as_model_parameter',
                 self.id,
