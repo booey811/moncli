@@ -381,7 +381,7 @@ class StatusValue(ComplexNullValue):
         labels = settings['labels']
         try:
             index = str(value['index'])
-        except IndexError:
+        except KeyError:
             index = None
         if not self.text and index not in labels:
             return None
