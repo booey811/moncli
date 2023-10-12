@@ -379,7 +379,10 @@ class StatusValue(ComplexNullValue):
     def _convert(self, value):
         settings = self.settings
         labels = settings['labels']
-        index = str(value['index'])
+        try:
+            index = str(value['index'])
+        except IndexError:
+            index = None
         if not self.text and index not in labels:
             return None
         return labels[index]
